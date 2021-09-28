@@ -1,0 +1,575 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@import "fonts";
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+//@import "icons";
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontFamily: "TTChocolates-Regular", sans-serif;
+$fontSize: 18;
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minWidth: 320px;
+$maxWidth: 1440;
+$maxWidthContainer: 1230;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+$mainColor: #000;
+$colorRed: #ba0c2f;
+$colorRedInner: #67061a;
+
+$fontGaram: "GaramondPremrPro";
+$fontTT: "TTChocolates-Regular";
+
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null";
+body {
+	color: #fff;
+	&._lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	&._loaded {
+	}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+._container {
+	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	padding: 0 15px;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: none;
+		padding: 0 24px;
+	}
+	@media (max-width: $md3+px) {
+		padding: 0 10px;
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms";
+@import "ui";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "datepicker";
+//@import "lightgallery";
+//@import "pagging";
+@import "popup";
+@import "header";
+@import "footer";
+@import "home";
+@import "diner";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.page {
+	flex: 1 1 auto;
+	background-color: $mainColor;
+	// min-height: 100vh;
+
+	&__main-screen {
+	}
+	// .page__red-decor
+
+	&__red-decor {
+	}
+
+	// .page__slider-bars
+
+	&__slider-bars {
+	}
+	// .page__vacancies
+
+	&__vacancies {
+	}
+}
+//===================================================================================================================================
+
+.main-screen {
+	// @media (max-width: 380px), (min-height: 790px) {
+	// 	min-height: 100vh;
+	// }
+	// .main-screen__container
+
+	&__container {
+	}
+
+	&__wrapper {
+		padding-top: 164px;
+		@media (min-width: $md2+px) {
+			padding-bottom: 116px;
+		}
+		@media (max-width: $md2+px) {
+			padding-bottom: 133px;
+		}
+		@media (max-width: 390px) {
+			padding-bottom: 130px;
+		}
+		position: relative;
+		z-index: 2;
+	}
+
+	// .main-screen__wrapper
+	&__wrapper {
+		display: flex;
+		margin: 0 -15px;
+		@media (max-width: $md1+px) {
+			margin: 0 -10px;
+		}
+		@media (max-width: $md2+px) {
+			flex-wrap: wrap;
+			margin: 0;
+		}
+	}
+	// .main-screen__column
+	&__column {
+		flex: 0 1 33.333%;
+		padding: 0 15px;
+		@media (max-width: $md1+px) {
+			padding: 0 10px;
+		}
+		@media (max-width: $md2+px) {
+			padding: 0;
+			flex: 0 0 100%;
+			display: flex;
+			justify-content: center;
+			&:not(:last-child) {
+				margin: 0px 0px 50px 0px;
+			}
+		}
+	}
+	// .main-screen__item
+	&__item {
+		@media (max-width: $md2+px) {
+			max-width: 380px;
+			width: 100%;
+		}
+	}
+	// .main-screen__image
+	&__image {
+		padding-bottom: 100%;
+		position: relative;
+		margin: 0px 0px 28px 0px;
+	}
+	// .main-screen__info
+	&__info {
+		text-align: center;
+	}
+	// .main-screen__link
+	&__link {
+		font-size: 50px;
+		line-height: (62 / 50);
+		text-align: center;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #fff;
+	}
+	// .main-screen__caprion
+	&__caption {
+		font-size: 24px;
+		line-height: (29 / 24);
+		text-align: center;
+		color: #ba0c2f;
+		font-family: "GaramondPremrPro";
+	}
+}
+
+.image-main {
+	display: block;
+	// .image-main__img
+	&__img {
+		opacity: 1;
+	}
+	// .image-main__hover
+	&__hover {
+		opacity: 0;
+	}
+	@media (any-hover: hover) {
+		&__img {
+			opacity: 0;
+			transition: all 0.3s ease 0s;
+		}
+		// .image-main__hover
+		&__hover {
+			opacity: 1;
+			transition: all 0.3s ease 0s;
+		}
+		&:hover .image-main__img {
+			opacity: 1;
+		}
+		&:hover .image-main__hover {
+			opacity: 0;
+		}
+	}
+}
+
+//========================================================================================================================================================
+
+//========================================================================================================================================================
+
+// .offer-dinner__slider-bars {
+// 	position: relative;
+// 	z-index: 5;
+// 	margin-top: -440px;
+// }
+
+.slider-bars {
+	// .slider-bars__container
+
+	&__container {
+		@media (min-width: $md2+px) {
+			// max-width: 890px;
+		}
+	}
+
+	// .slider-bars__wrapper
+
+	&__wrapper {
+		position: relative;
+		@media (min-width: $md2+px) {
+			// left: -57px;
+		}
+	}
+
+	// .slider-bars__controls
+
+	&__controls {
+	}
+
+	// .slider-bars__body
+
+	&__body {
+	}
+
+	// .slider-bars__slide
+
+	&__slide {
+	}
+
+	// .slider-bars__img
+
+	&__img {
+		width: 100%;
+		padding-bottom: 47%;
+		position: relative;
+		z-index: 4;
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			object-position: center;
+		}
+		@media (max-width: $md2+px) {
+			margin: 0;
+		}
+	}
+}
+
+.controls-slider-bars {
+	// .controls-slider-bars__pagging
+
+	&__pagging {
+		font-family: "GaramondPremrPro";
+		display: flex;
+		align-items: center;
+		font-size: 35px;
+		position: absolute;
+		bottom: -50px;
+		left: 50%;
+		z-index: 5;
+		transform: translate(-50%, 0px);
+		&-seporator {
+			width: 30px;
+			height: 1.5px;
+			background-color: #fff;
+			display: block;
+			margin: 0 7px;
+		}
+	}
+
+	// .controls-slider-bars__arrows
+
+	&__arrows {
+		position: absolute;
+		bottom: auto;
+		z-index: 5;
+		width: 100%;
+		top: calc(50% - 33.5px);
+		// transform: translate(0, -50%);
+		// @media (max-width: $md2+px) {
+		// 	top: 30%;
+		// 	bottom: auto;
+		// }
+	}
+}
+.slider-arrows {
+}
+.slider-arrow {
+	// @include adaptiv-value("width", 85, 67, 1);
+	// @include adaptiv-value("height", 37, 44, 1);
+	position: absolute;
+	transition: all 0.3s ease 0s;
+
+	width: 67px;
+	height: 67px;
+	border-radius: 50%;
+	border: 1px solid #fff;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 85px;
+		height: 37px;
+		background-image: url(../img/icons/arrow-slider.svg);
+		background-repeat: no-repeat;
+		top: 50%;
+		transform: translate(0, -50%);
+		transition: all 0.3s ease 0s;
+		left: -50%;
+		background-size: contain;
+		@media (max-width: 680px) {
+			width: 65px;
+			height: 28px;
+			left: -32%;
+		}
+	}
+	&.swiper-button-disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: contain;
+		object-position: center;
+	}
+	@media (max-width: 570px) {
+		display: none;
+	}
+	// .slider-arrow--prev
+
+	&--prev {
+		transform: rotate(-180deg);
+		left: 105px;
+
+		@media (max-width: $md2+px) {
+			left: 40px;
+		}
+		@media (max-width: 620px) {
+			display: none;
+		}
+		@media (any-hover: hover) {
+			&:hover:before {
+				transform: translate(5px, -50%);
+			}
+			&.swiper-button-disabled:hover:before {
+				transform: translate(0px, -50%);
+			}
+		}
+	}
+
+	// .slider-arrow--next
+
+	&--next {
+		right: 105px;
+
+		@media (max-width: $md2+px) {
+			right: 40px;
+		}
+		@media (max-width: 620px) {
+			display: none;
+		}
+		@media (any-hover: hover) {
+			&:hover:before {
+				transform: translate(5px, -50%);
+			}
+			&.swiper-button-disabled:hover:before {
+				transform: translate(0px, -50%);
+			}
+		}
+	}
+}
+
+//========================================================================================================================================================
+
+.menu-product {
+	padding: 70px 0 30px;
+	// .menu-product__wrapper
+	&__wrapper {
+	}
+	// .menu-product__item
+	&__item {
+		&:not(:last-child) {
+			margin: 0px 0px 40px 0px;
+		}
+	}
+	// .menu-product__title
+	&__title {
+		font-size: 40px;
+		line-height: 110%;
+		text-align: center;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		align-items: center;
+		cursor: pointer;
+		position: relative;
+		padding-bottom: 84px;
+		position: relative;
+		&._active {
+			.menu-product__arrow {
+				transform: translate(-50%, 10px) rotate(-180deg);
+			}
+		}
+		&::after {
+			content: "";
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background: linear-gradient(90deg, rgba(103, 6, 26, 0.2) 0%, #67061a 52.08%, rgba(103, 6, 26, 0.2) 100%);
+		}
+	}
+	// .menu-product__arrow
+	&__arrow {
+		left: 50%;
+		bottom: 40px;
+		height: 21px;
+		width: 21px;
+		display: inline-block;
+		position: absolute;
+		// position: relative;
+		transition: all 0.3s ease 0s;
+		transform: translate(-50%, 0px) rotate(0deg);
+	}
+	// .menu-product__body
+	&__body {
+	}
+}
+
+.product-menu {
+	// .product-menu__title
+	&__title {
+		font-size: 25px;
+		line-height: 110%;
+		text-align: center;
+		padding: 24px 0;
+		text-transform: uppercase;
+	}
+	// .product-menu__list
+	&__list {
+	}
+	// .product-menu__item
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 24px 0;
+		@media (max-width: 660px) {
+			flex-wrap: wrap;
+		}
+	}
+	// .product-menu__inner
+	&__inner {
+		display: flex;
+		align-items: center;
+		flex: 0 1 40%;
+		padding-right: 5px;
+		@media (max-width: $md1+px) {
+			flex: 0 1 70%;
+		}
+		@media (max-width: 660px) {
+			flex: 0 1 100%;
+			margin: 0px 0px 25px 0px;
+		}
+	}
+
+	// .product-menu__numb
+	&__numb {
+		font-size: 30px;
+		line-height: 110%;
+		color: #ba0c2f;
+		margin: 0px 41px 0px 0px;
+		align-self: flex-start;
+		@media (max-width: 660px) {
+			margin-right: 21px;
+		}
+	}
+	// .product-menu__name
+	&__name {
+		font-size: 22px;
+		line-height: 110%;
+		color: #fff;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	// .product-menu__info
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		flex: 0 1 30%;
+		@media (min-width: $md1+px) {
+			padding-right: 80px;
+		}
+		@media (max-width: $md1+px) {
+			flex: 0 1 20%;
+		}
+		@media (max-width: 660px) {
+			flex: 0 1 100%;
+			padding-left: 33px;
+		}
+	}
+	// .product-menu__option
+	&__option {
+	}
+	// .product-menu__price
+	&__price {
+	}
+}
+
+//========================================================================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
